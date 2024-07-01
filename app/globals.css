@@ -25,9 +25,25 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.btn{
+  text-transform: none !important;
+}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+.padding-global{
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+}
+
+
+
+@media screen and (max-width: 767px){
+  .padding-global{
+    padding-left: 1.25em;
+    padding-right: 1.25em;
   }
 }
