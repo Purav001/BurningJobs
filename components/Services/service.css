@@ -4,6 +4,7 @@
 }
 
 .services_wrapper {
+    margin-top: 50px;
     grid-column-gap: 64px;
     grid-row-gap: 64px;
     flex-direction: column;
@@ -147,6 +148,7 @@ h3 {
         padding-right: 1.25rem;
     }
     .services_wrapper {
+        margin-top: -10px;
         grid-column-gap: 32px;
         grid-row-gap: 32px;
     }

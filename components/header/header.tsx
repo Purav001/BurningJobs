@@ -2,7 +2,6 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <header>
       <div className="navbar fixed padding-global" style={{color: '#fffce1', backgroundColor: '#1b2528' ,borderBottom: '1px solid #fffce1', zIndex: '1000'}}>
         <div className="navbar-start">
           <div className="dropdown">
@@ -51,11 +50,10 @@ const Header = () => {
             <li><a>Item 3</a></li>
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="navbar-end flex-end">
+          <a className="btn">Log in</a>
         </div>
       </div>
-      </header>
   )
 }
 

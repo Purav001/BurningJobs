@@ -4,6 +4,7 @@ import Hero from "@/components/Hero/Hero";
 import AboutUs from "@/components/about-us/page";
 import Features from '@/components/Features/features'
 import CustomerReviewCarousel from "@/components/testimonials/CustomerReviewCarousel";
+import TestiHeading from "@/components/testimonials/testiHeading";
 
 
 interface CarouselItem {
@@ -93,10 +94,11 @@ export default function Home() {
     <Hero />
     <section id="Services" className="section_services">
         <div id='services' className='container-large'>
+        <div className="services_wrapper ">
           <div className="services_heading-wrapper">
             <h2>Services Offered</h2>
           </div>
-          <div className="services_wrapper ">
+          
             <div className="services_card-wrapper center">
               {
                 data.services.map((service)=><Services key={service.title} service={service}/>)
@@ -107,6 +109,7 @@ export default function Home() {
       </section> 
     <AboutUs />
     <Features />
+    <TestiHeading />
     <div className="center slick-initialized slick-slider slick-dotted">
       <div className="slick-list draggable" style={{ padding: '0px 80px' }}>
         <div className="slick-track" style={{ opacity: 1, width: '100vw', transform: 'translate3d(-80px, 0px, 0px)' }}>
