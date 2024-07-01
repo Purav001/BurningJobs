@@ -2,7 +2,8 @@ import React from 'react'
 
 const Header = () => {
   return (
-      <div className="navbar padding-global">
+    <header>
+      <div className="navbar fixed padding-global" style={{color: '#fffce1', backgroundColor: '#1b2528' ,borderBottom: '1px solid #fffce1', zIndex: '1000'}}>
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,6 +55,7 @@ const Header = () => {
           <a className="btn">Button</a>
         </div>
       </div>
+      </header>
   )
 }
 

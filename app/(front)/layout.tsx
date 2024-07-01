@@ -3,5 +3,5 @@ export default function FrontLayout({
   }: Readonly<{
     children: React.ReactNode;
   }>) {
-    return <main className="flex-grow container  padding-global">{children}</main>
+    return <main className="flex-grow">{children}</main>
   }
