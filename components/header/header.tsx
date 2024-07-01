@@ -1,6 +1,16 @@
+'use client'
 import React from 'react'
-
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll'
+import { usePathname } from 'next/navigation'
+import './header.css'
+import Link from 'next/link'
 const Header = () => {
+  const pathname = usePathname()
+
+  console.log(pathname)
+  const scrollToTop = () => {
+    scroll.scrollToTop()
+  }
   return (
       <div className="navbar fixed padding-global" style={{color: '#fffce1', backgroundColor: '#1b2528' ,borderBottom: '1px solid #fffce1', zIndex: '1000'}}>
         <div className="navbar-start">
@@ -37,7 +47,35 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li><a>Item 1</a></li>
+            <li>
+              <ScrollLink
+              to='About'
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+              className={`${
+                pathname === '/#About' ? 'text-y' : 'text-white'
+              } font-bold mr-6 cur`}
+            >
+              About Us
+            </ScrollLink>
+            
+            </li>
+            <li>
+            <ScrollLink
+              to='Services'
+              spy={true}
+              smooth={true}
+              offset={0}
+              duration={500}
+              className={`${
+                pathname === '/#Services' ? 'text-[#fbbf24]' : 'text-white'
+              } font-bold mr-6 cur`}
+            >
+              Services
+            </ScrollLink>
+            </li>
             <li>
               <details>
                 <summary>Parent</summary>
