@@ -5,7 +5,13 @@ import AboutUs from "@/components/about-us/page";
 import Features from '@/components/Features/features'
 import CustomerReviewCarousel from "@/components/testimonials/CustomerReviewCarousel";
 import TestiHeading from "@/components/testimonials/testiHeading";
+import services from '@/lib/services/services'
+import { Metadata } from "next";
 
+export const metadata : Metadata = {
+  title: process.env.NEXT_PUBLIC_APP_NAME ,
+  description: process.env.NEXT_PUBLIC_APP_DES
+}
 
 interface CarouselItem {
   name: string
@@ -88,7 +94,8 @@ const items: CarouselItem[] = [
   // Add more items as needed
 ];
 
-export default function Home() {
+export default async function Home() {
+  const latestservices = await services.getLatest()
   return (
     <>
     <Hero />
@@ -101,7 +108,7 @@ export default function Home() {
           
             <div className="services_card-wrapper center">
               {
-                data.services.map((service)=><Services key={service.title} service={service}/>)
+                latestservices.map((service)=><Services key={service.title} service={service}/>)
               }
             </div>
           </div>
