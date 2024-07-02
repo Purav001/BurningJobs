@@ -1,3 +1,9 @@
+/* header{
+    color: #fffce1 !important;
+    backgroundColor: #1b2528  !important;
+    borderBottom: 1px solid #fffce1 !important;
+    zIndex: 1000;
+} */
 .cur {
     cursor: pointer !important;
 }
