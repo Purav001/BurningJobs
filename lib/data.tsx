@@ -12,7 +12,7 @@ const data = {
             name : 'Purav',
             email: 'user@exemplar.com',
             passward: bcrypt.hashSync('123456'),
-            isAdmin: true,
+            isAdmin: false,
         }
     ],
     services: [
