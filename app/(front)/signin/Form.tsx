@@ -54,7 +54,7 @@ const Form = () => {
         })
     }
     return (
-        <div className="">
+        <div className="mt-10">
             {session && session.user && (
                 <div className="h-full flex justify-center items-center w-full">
                 <Lottie options={defaultOptions} height={200} width={200} />
