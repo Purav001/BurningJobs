@@ -61,11 +61,11 @@ body {
   margin-right: auto;
 }
 
-/* .center{
+.text-center{
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
 .flex-end{
   display: flex;
   justify-content: flex-end;

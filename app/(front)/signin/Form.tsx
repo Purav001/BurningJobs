@@ -1,7 +1,7 @@
 'use client'
 import { signIn, useSession } from "next-auth/react"
 import { useSearchParams } from "next/navigation"
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import Link from 'next/link'
@@ -54,7 +54,7 @@ const Form = () => {
         })
     }
     return (
-        <div>
+        <div className="">
             {session && session.user && (
                 <div className="h-full flex justify-center items-center w-full">
                 <Lottie options={defaultOptions} height={200} width={200} />
@@ -63,7 +63,7 @@ const Form = () => {
             <div className="max-w-sm  mx-auto card bg-base-300 my-4">
                 {!(session && session.user) && (
                 <div className="card-body">
-                    <h1 className="card-title">Sign in</h1>
+                    <h1 className="card-title text-center">Sign in</h1>
                     {params.get('error') && (
                     <div className="alert text-error">
                         {params.get('error') === 'CredentialsSignin'
@@ -115,7 +115,8 @@ const Form = () => {
                         <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="btn btn-primary w-full"
+                        className="btn w-full"
+                        style={{ backgroundColor: '#fbbf24', color: '#000' }}
                         >
                         {isSubmitting && (
                             <span className="loading loading-spinner"></span>
