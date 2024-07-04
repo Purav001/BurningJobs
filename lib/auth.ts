@@ -1,4 +1,4 @@
-import { NextAuthOptions } from 'next-auth';
+import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import dbConnect from './dbCOnnect';
 import UserModel from './models/UserModel';
@@ -31,7 +31,56 @@ export const config ={
                     }
                 }
                 return null
-              },
+                },
         }),
         ],
+        pages: {
+            signIn: '/signin',
+            newUser: '/register',
+            error: '/signin'
+        },
+        callbacks: {
+            authorized({ request , auth }: any){
+                const protectedPaths = [
+                    /\/payment/,
+                    /\/profile/,
+                    /\/place-order/,
+                    /\/order\/(.*)/,
+                    /\/admin/,
+                ]
+                const { pathname } = request.nextUrl
+                if (protectedPaths.some((p) => p.test(pathname))) return !!auth
+                return true
+        },
+        async jwt({ user, trigger, session, token }: any) {
+            if (user) {
+                token.user = {
+                _id: user._id,
+                email: user.email,
+                name: user.name,
+                isAdmin: user.isAdmin,
+                }
+            }
+            if (trigger === 'update' && session) {
+                token.user = {
+                ...token.user,
+                email: session.user.email,
+                name: session.user.name,
+                }
+            }
+            return token
+            },
+            session: async ({ session, token }: any) => {
+            if (token) {
+                session.user = token.user
+            }
+            return session
+            },
     }
+}
+export const {
+    handlers: { GET, POST },
+    auth,
+    signIn,
+    signOut,
+    } = NextAuth(config)
