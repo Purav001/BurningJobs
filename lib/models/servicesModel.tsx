@@ -6,6 +6,7 @@ const serviceSchema = new mongoose.Schema(
         imageSrc: {type: String, required: true},
         imageSrcSet: {type: String, required: true},
         title: {type: String, required: true},
+        slug: {type: String, required: true},
         description: {type: String, required: true},
         link: {type: String, required: true},
     },
@@ -23,6 +24,7 @@ export type Service = {
     imageSrc: string
     imageSrcSet: string
     title: string
+    slug: string
     description: string
     link: string
 }

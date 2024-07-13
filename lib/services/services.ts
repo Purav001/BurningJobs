@@ -11,14 +11,14 @@ const getLatest = cache(async () => {
     .lean()
     return services as unknown as Service[]
 })
-const getByTitle = cache(async (title : String) => {
+const getBySlug = cache(async (slug : String) => {
     await dbConnect()
-    const services = await servicesModel.findOne({ title }).lean()
-    return services as unknown as Service[]
+    const services = await servicesModel.findOne({ slug }).lean()
+    return services as unknown as Service
 })
 
 const services = {
     getLatest,
-    getByTitle,
+    getBySlug,
 }
 export default services

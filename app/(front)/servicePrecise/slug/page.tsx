@@ -5,7 +5,7 @@ export async function generateMetadata({
   }: {
     params: { title: string }
   }) {
-    const service = await services.getByTitle(params.title)
+    const service = await services.getBySlug(params.title)
     if (!service) {
       return { title: 'Service not found' }
     }
